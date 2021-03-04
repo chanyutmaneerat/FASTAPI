@@ -1,5 +1,7 @@
+# check stock price
+from uncleengineer import thaistock
 from fastapi import FastAPI
-
+from typing import Optional
 app = FastAPI()
 
 
@@ -17,10 +19,9 @@ def Allproduct():
     return products
 
 @app.get('/product/{index}/')
-def chekproduct(index:int):
+def chekproduct(index:int=0,name: Optional[str] = 'Test name'):
     return products[index]
-# check stock price
-from uncleengineer import thaistock
+
 
 
 @app.get('/stock/{stock_name}/')
